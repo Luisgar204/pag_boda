@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Boda</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            font-family: 'chsllista', challista;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffffff;
+        }
+        
+        header {
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .encabezado2 {
+            width: 100%;
+            height: auto;
+        }
+        
+        .encabezado {
+            width: 55%; 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centra la imagen sobre encabezado2 */
+        }
+        
+        /* Palabras y Palabras2 */
+        .seccion-palabras .imagen-seccion {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 65.5%);
+        }
+        
+        .seccion-palabras2 .imagen-seccion {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 65.5%);
+        }
+        
+        
+        
+        /* Cuenta regresiva */
+        .cuenta-regresiva {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -160%);
+            font-size: 110px;
+            color: #060488;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            background: none;
+        }
+        
+        .encabezado-menu {
+            font-size: 100px;
+            color: #0a0a0a;
+            padding: 1px;
+            border-radius: 0px;
+            font-weight: bold;
+            background: none;
+        }
+        
+        /* Secciones generales */
+        main {
+            width: 100%;
+            padding: 10px;
+        }
+        
+        .seccion-itinerario {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 238.5%);
+        }
+        
+        /* Sección de Lugares: Misa y Fiesta */
+        .seccion-lugares {
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin: 50px 0;
+            text-align: center;
+            z-index: 9999;
+            transform: translate(-0%, 23%);
+        }
+        
+        .lugar, .lugarR {
+            background-color: #b9d8f8;
+            padding: 20px;
+            border-radius: 15px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+            z-index: 999;
+            width: 60%; 
+            max-width: 500px; 
+            margin: 0 auto;
+        }
+        
+        .lugar:hover, .lugarR:hover {
+            background-color: #71d3fa;
+        }
+        
+        .lugar h2, .lugarR h2 {
+            font-family: 'challista', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #060488;
+        }
+        .lugarR h2 {
+            font-family: 'cursive', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #0101fd;
+        }
+        
+        .lugar p, .lugarR p {
+            font-family: 'chsllista', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #010114;
+        }
+        .lugarR p {
+            font-family: 'chsllista', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #010114;
+        }
+        .imagen-lugar, .imagen-lugarm {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .boton-lugar, .boton-lugarm {
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            background-color: #f7b35a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'chsllista', cursive;
+        }
+        
+        .boton-lugar:hover, .boton-lugarm:hover {
+            background-color: #ff9101;
+        }
+        
+        
+        .seccion-texto-biblico {
+            background-color: #b9d8f8;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translate(-0%, 675%);
+        }
+        
+        /* Estilo para los títulos (h2) en la sección de texto bíblico */
+        .seccion-texto-biblico h1 {
+            font-family: 'chsllista', challista;
+            font-size: 3.7rem;
+            margin-bottom: 10px;
+            line-height: 1.2; /* Reduce el espacio entre líneas */
+            color: #030231;
+            text-align: center;
+        }
+        
+        .seccion-texto-biblico h3 {
+            font-family: 'chsllista', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            line-height: 1.2; 
+            color: #07032e;
+            text-align: center;
+        }
+        
+        /* Estilo para el texto combinado en un solo párrafo */
+        .seccion-texto-biblico p {
+            font-family: 'chsllista', cursive;
+            font-size: 1.5rem;
+            color: #010114;
+            text-align: center;
+            white-space: pre-line; 
+        }
+        
+        /* Imagen con borde redondeado y centrada entre el título y el párrafo */
+        .seccion-texto-biblico img {
+            display: block;
+            margin: 20px auto;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .seccion-ultimas-palabras {
+            background-color: #b9d8f8;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translate(-0%, 835%);
+        }
+        
+        /* Estilo para los títulos (h2) en la sección de texto bíblico */
+        .seccion-ultimas-palabras h2 {
+            font-family: 'chsllista', challista;
+            font-size: 3.9rem;
+            margin-bottom: 10px;
+            line-height: 1.2; /* Reduce el espacio entre líneas */
+            color: #030231;
+            text-align: center;
+        }
+        .seccion-ultimas-palabras h1 {
+            font-family: 'chsllista', cursive;
+            font-size: 2.7rem;
+            margin-bottom: 10px;
+            line-height: 1.2; /* Reduce el espacio entre líneas */
+            color: #030231;
+            text-align: center;
+        }
+        
+        
+        /* Estilo para el texto combinado en un solo párrafo */
+        .seccion-ultimas-palabras p {
+            font-family: 'chsllista', cursive;
+            font-size: 1.5rem;
+            color: #010114;
+            text-align: center;
+            white-space: pre-line; 
+        }
+        
+        
+        .seccion-vestimenta {
+            background-color: #b9d8f8;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translate(-0%, 60%);
+            z-index: 1000;
+        }
+        
+        /* Estilo para los títulos (h2) en la sección de texto bíblico */
+        .seccion-vestimenta h1 {
+            font-family: 'chsllista', challista;
+            font-size: 5rem;
+            margin-bottom: 10px;
+            line-height: 1.2; /* Reduce el espacio entre líneas */
+            color: #030244;
+            text-align: center;
+            font-weight: bold;
+           
+        }
+        .seccion-vestimenta img {
+            display: block;
+            margin: 20px auto;
+            width: 500px;
+            height: 600px;
+            border-radius: 10%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Sección QR */
+        .seccion-QR {
+            background-color: #9ac9f5;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translate(-0%, 515%);
+        }
+        
+        .seccion-QR h1 {
+            font-family: 'chsllista', challista;
+            font-size: 3.7rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            color: #110000;
+            text-align: center;
+        }
+        
+        .seccion-QR img {
+            display: block;
+            margin: 20px auto;
+            width: 400px;
+            height: 400px;
+            border-radius: 10%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Estilo para la sección de Regalos */
+        .seccion-regalos {
+            background-color: #b8d4f8;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 30px;
+            text-align: center;
+            font-family: 'chsllista', cursive;
+            z-index: 10000;
+            transform: translate(-0%, 550%);
+          }
+          
+          .seccion-regalos h1 {
+            font-size: 4.5rem;
+            color: #060488;
+            margin-bottom: 20px;
+            font-family: 'chsllista', challista;
+            z-index: 10000;
+          }
+          
+          .seccion-regalos p {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #010114;
+          }
+          
+          .opciones-regalos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .opciones-regalos button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #f7b35a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-family: 'chsllista', cursive;
+            transition: background-color 0.3s;
+            z-index: 10000;
+          }
+          
+          .opciones-regalos button img {
+            width: 30px;
+            height: 30px;
+          }
+          
+          .opciones-regalos button:hover {
+            background-color: #ff9101;
+          }
+          
+          /* Estilo para los cuadros emergentes */
+          .popup-cuadro {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-width: 700px;
+            width: 520px;
+            text-align: center;
+        }
+        
+        /* Estilo para el cuadro emergente de efectivo */
+        .efectivo-popup {
+            background-color: #f9e1a8; /* Cambia el color de fondo específico */
+            border: 2px solid #f1c232; /* Ajusta el borde */
+            transform: translate(-50%,4345%);
+        }
+        
+        /* Estilo para el cuadro emergente de banco */
+        .banco-popup {
+            background-color: #d1e7ff; /* Cambia el color de fondo específico */
+            border: 2px solid #6fa8dc; /* Ajusta el borde */
+            transform: translate(-50%,1575%);
+        }
+        
+        /* Estilo para el botón de cerrar */
+        .cerrar-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #fc0404;
+            font-size: 2rem;
+        }
+          
+          .popup-cuadro p {
+            font-size: 1.5rem;
+            color: #010114;
+            font-family: cursive;
+            max-width: 700px;
+            width: 600px;
+            transform: translate(-5%);
+          }
+          
+          .popup-cuadro h3 {
+            font-size: 2.5rem;
+            color: #010114;
+            font-family: challista;
+          }
+          .popup-cuadro h2 {
+            font-size: 3rem;
+            color: #010114;
+            font-family: challista;
+          }
+          .popup-cuadro  h4 {
+            font-family: 'chsllista', cursive;
+            font-size: 1,5rem;
+            margin-bottom: 10px;
+            line-height: 1.2; 
+            color: #07032e;
+            text-align: center;
+            transform: translate(1.7%,0%);
+        }
+          
+          /* Mostrar cuadros emergentes */
+          .popup-cuadro.visible {
+            display: block;
+          }
+          
+          /* Ocultar cuadros emergentes */
+          .oculto {
+            display: none;
+          }
+          
+          
+        
+        
+        
+        .seccion-menu
+        {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 1223.5%);
+            z-index:990;
+        }
+        .ayuda-musica
+        {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 1200%);
+            z-index:990 ;
+        }
+        
+        /* Sección de Padrinos */
+        .seccion-padrinos {
+            width: 100%;
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: transparent;
+            opacity: 0; 
+            transition: opacity 1.5s ease-in-out; /* Aparición progresiva */
+            z-index: 998;
+            transform: translate(0%, 210%);
+        
+        
+        }
+        .seccion-padrinos h1 {
+            font-family: 'chsllista', challista;
+            font-size: 4.5rem;
+            margin-bottom: 40px;
+            color: #030242;
+            text-align: center;
+            margin-top: 0;
+            transform: translate(0%, 70%);
+        
+            
+        }
+        .contenedor-padrinos {
+            display: flex;
+            justify-content: space-around;
+            width: 90%; 
+            padding: 130px; 
+            background-color: rgba(150, 184, 247, 0.5); 
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+        
+        .padrino {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .imagen-padrino {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%; 
+            border: 5px solid white; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            transition: transform 0.3s ease;
+            transform: translate(0%, -0%);
+            z-index:910 ;
+        }
+        
+        .imagen-padrino:hover {
+            transform: scale(1.1); /* Efecto de zoom al pasar el cursor */
+        }
+        
+        /* Efecto de aparición progresiva */
+        .seccion-padrinos.visible {
+            opacity: 1; /* Se muestra la sección cuando está en pantalla */
+        }
+        .seccion-padrinos h2 {
+            font-family: 'chsllista', challista;
+            font-size: 4.5rem;
+            margin-bottom: 40px;
+            color: #060488;
+            text-align: center;
+            margin-top: 0;
+            transform: translate(-0px,160px);
+        }
+        .nombre-padrino1 {
+            font-family: 'chsllista', challista;
+            font-size: 2.2rem;
+            color: #010111;
+            text-align: center;
+            margin-top: 20px; 
+            position: absolute;
+            font-weight: bold;
+            transform: translate(-0px,190px); /* Ajusta este valor para colocar el texto justo debajo de la imagen */
+        }
+        .nombre-padrino2 {
+            font-family: 'chsllista', challista;
+            font-size: 2.2rem;
+            color: #010111;
+            text-align: center;
+            margin-top: 20px; 
+            position: absolute;
+            font-weight: bold;
+            transform: translate(-0px,168px);
+            z-index:900 ;
+        }
+        
+        
+        /* Animación para cuando la sección aparece al hacer scroll */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        
+        .imagen-seccion,
+        .imagen-lugar {
+            width: 100%;
+            height: auto;
+        }
+        
+        
+        .lugar h2 {
+            font-family: 'chsllista', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #060488;
+        }
+        
+        
+        
+        .boton-lugar {
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            background-color: #f7b35a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .boton-lugar:hover {
+            background-color: #ff9101;
+        }
+        
+        
+        .boton {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f3971e;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .boton-menu {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f7b35a;
+            padding: 25px 30px;
+            font-size: 2rem;
+            font-family: '', cursive;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            transform: translate(-50%, 60%);
+        }
+        .boton-menu:hover {
+            background-color: #ff9101;
+        }
+        .boton-musica {
+            position: relative;
+            
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f7b35a;
+            padding: 25px 30px;
+            font-size: 2rem;
+            font-family: '', cursive;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 1s;
+            transform: translate(-50%,40%);
+        }
+        .boton-musica:hover {
+            background-color: #ff9101;
+        }
+        .boton-1 {
+            position: relative;
+            
+            bottom: -30px;
+            left: 27%;
+            transform: translateX(-50%);
+            background-color: #f7b35a;
+            padding: 25px 30px;
+            font-size: 2rem;
+            font-family: '', cursive;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 1s;
+        }
+        .boton-1:hover {
+            background-color: #ff9101;
+        }
+        .boton2 {
+            position: relative;
+            
+            bottom: -30px;
+            left: 46%;
+            transform: translateX(-50%);
+            background-color: #f7b35a;
+            padding: 25px 30px;
+            font-size: 2rem;
+            font-family: '', cursive;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 1s;
+        }
+        .boton2:hover {
+            background-color: #ff9101;
+        }
+        .boton:hover {
+            background-color: #1e98fc;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .overlay-content {
+            background-color: #fff;
+            padding: 20px 40px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .overlay-content h1 {
+            font-family: 'chsllista', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .overlay-content button {
+            font-family: 'chsllista', cursive;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #f7b35a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .overlay-content button:hover {
+            background-color: #ff9101;
+        }
+        
+        /* Estilo de la sección de confirmar asistencia */
+        .seccion-confirmar {
+            background-color: #b9d8f8;
+            padding: 80px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            top: 100%;
+            left: -40%;
+            transform: translate(0%, 1487.3%);
+        }
+        
+        
+        
+        .seccion-confirmar h3 {
+            font-family: 'chsllista', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #03023f;
+        }
+        .seccion-confirmar p {
+            font-family: 'chsllista', Beathy;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #02013f;
+        }
+        
+        
+        .boton-confirmar {
+            font-family: 'chsllista', cursive;
+            padding: 30px 75px;
+            font-size: 2.2rem;
+            background-color: #f7b35a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        
+        
+        @media (max-width: 768px) {
+            .cuenta-regresiva {
+                font-size: 3.2rem;
+            }
+        
+            .boton {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+        }
+        
+        
+        </style>
+</head>
+
+<body>
+    
+   
+    <audio id="musica" src="sonido/sabras.mp3" autoplay loop></audio>
+
+    <header>
+        <img src="imagenes/portada boda emma.jpg" alt="Encabezado de la boda" class="encabezado">
+        <img src="imagenes/portada boda emma sin letras.jpg" alt="Encabezado de la boda" class="encabezado2">
+        <div id="cuenta-regresiva" class="cuenta-regresiva"></div>
+    </header>
+
+    <main>
+       <section class="seccion-palabras">
+            <img src="imagenes/palabras de la novia sin letras.jpg" alt="Palabras de la Novia" class="imagen-seccion">
+        </section>
+        <section class="seccion-palabras2">
+            <img src="imagenes/palabras de la novia sin fondo.png" alt="Palabras de la Novia" class="imagen-seccion">
+        </section>
+
+        <section class="seccion-itinerario">
+            <img src="imagenes/itinerario.jpg" alt="Itinerario" class="imagen-seccion">
+        </section>
+
+        <section class="seccion-menu">
+            <img src="imagenes/ayuda menu.jpg" alt="Menú" class="imagen-seccion">
+            <button onclick="window.location.href='menus.html'" class="boton-menu">Elegir Menú</button>
+        </section>
+
+        <section class="ayuda-musica">
+            <img src="imagenes/ayuda musica.jpg" alt="Elegir Música" class="imagen-seccion">
+            <button onclick="window.location.href='https://wa.me/04142891468?text=Quiero%20elegir%20un%20Regueton'" class="boton-musica">Elegir Música</button>
+        </section>
+        <section class="seccion-confirmar">
+            <h3>Hay momentos en la vida que son <br> muy especiales por si solos, pero al compartirlo con personas tan <br>especiales como tú se convierten en momentos imposibles de olvidar.</h3>
+            <P>Favor de confirmar su presencia<br>antes del 15/10/2024<P>
+            <button onclick="window.location.href='https://wa.me/+57 314 2167393?text=Confirmo%20mi%20Asistencia'" class="boton-confirmar">Confirmar</button>
+        </section>
+        <section class="seccion-lugares">
+            <div class="lugar">
+                <h2> Ceremonia religiosa </h2>
+                <p>Párraoquia san Sebastián<p>
+                <p> Cuando:07 de diciembre de 2024 a las 13:00 pm hrs<p>    
+                    <p> Direccion:CR 4 3-07 BRR CENTRO Sebastián de mariquita<p>    
+                <img src="imagenes/lugar misa.jpeg" alt="Lugar de la Misa" class="imagen-lugarm">
+                <button onclick="window.location.href='https://www.google.com/maps/place/Parroquia+San+Sebasti%C3%A1n+de+Mariquita/@5.2000813,-74.8972143,257m/data=!3m1!1e3!4m14!1m7!3m6!1s0x8e40b5f2c7c881b5:0x79a6b662d191303c!2sParroquia+San+Sebasti%C3%A1n+de+Mariquita!8m2!3d5.2001066!4d-74.897393!16s%2Fg%2F11csqyx7tc!3m5!1s0x8e40b5f2c7c881b5:0x79a6b662d191303c!8m2!3d5.2001066!4d-74.897393!16s%2Fg%2F11csqyx7tc?hl=es&entry=ttu'" class="boton-lugarm">Ver más</button>
+            </div>
+            <section class="seccion-lugaresR"></section>
+            <div class="lugarR">
+                <h2> Recepción</h2>
+                <p>Hotel Brisas La Gaviota<p>
+                    <p> Cuando:07 de diciembre de 2024 a las 15:00 pm hrs<p>    
+                        <p> Direccion:Km 1 vía Terpel - Vereda El Caucho. Mariquita, Tolima. <p>
+                <img src="imagenes/lugar fiesta.jpeg" alt="Lugar de la Fiesta" class="imagen-lugar">
+                <button onclick="window.location.href='https://www.google.com/maps/place/Hotel+Brisas+La+Gaviota/@5.2109997,-74.8798253,445m/data=!3m1!1e3!4m15!1m5!3m4!2zNcKwMTInNDEuOSJOIDc0wrA1Mic0NS4wIlc!8m2!3d5.211645!4d-74.879153!3m8!1s0x8e40ca0130f5c0dd:0x443358c6c5c7492d!5m2!4m1!1i2!8m2!3d5.2107278!4d-74.8804394!16s%2Fg%2F11cmhl5blv?entry=ttu'" class="boton-lugar">Ver más</button>
+            </div>
+            </section>
+        </section>
+        <section class="seccion-padrinos">
+            <h1>Con la bendición de Dios<br>y nuestros Padrinos</h1>
+            <h2>Padrinos</h2>
+            <div class="contenedor-padrinos">
+                <div class="padrino">
+                    <img src="imagenes/padrino1.jpg" alt="Padrino 1" class="imagen-padrino">
+                    <p class="nombre-padrino1">Diana Carolina Arias<br>Marlon Rodríguez</p>
+                </div>
+                <div class="padrino">
+                    <img src="imagenes/padrino2.jpg" alt="Padrino 2" class="imagen-padrino">
+                    <p class="nombre-padrino2">Doris Mercedes Montaña</p>
+                </div>
+            </div>
+
+        </section>
+        <section class="seccion-texto-biblico">
+            <div class="biblia">
+                <p>Más valen dos que uno, porque obtienen<br>más fruto de su esfuerzo. Si caen, uno<br>levanta al otro. ¡Ay del que cae y no tiene quién lo levante!<br>Si dos se acuestan juntos entran en calor;<br>uno solo ¿Cómo va a calentarse? Uno solo puede ser vencido,<br>pero dos van a resistir. ¡La cuerda de tres hilos no se rompe fácilmente!</p>
+                <p>Eclesiastés 4: 9-12</p>
+                <img src="imagenes/TEXTO BIBLoCO.png" alt="Texto Bíblico" class="imagen-biblia">
+            </div>
+        </section>
+        <section class="seccion-QR">
+            <div class="QR">
+                <h1>Sube tus fotos aca<br>Para recordar este dia desde tus ojos</h1>
+                <img src="imagenes/QR boda.png" alt="Texto Bíblico" class="imagen-biblia">
+            </div>
+        </section>
+        
+        <section class="seccion-vestimenta">
+            <div class="vestimenta">
+                <h1>¡Dress code!</h1>
+                <img src="imagenes/codigo de vestimenta.jpg" alt="vestimenta" class="imagen-vestido">
+            </div>
+        </section> 
+       
+         <!-- Sección de Regalos -->
+<div class="seccion-regalos">
+    <h1>Regalos</h1>
+    <p>
+      Queremos que lo importante sea el que nos acompañen a celebrar con Ilusión, Alegría y muchas ganas de Disfrutar.
+      Si desean hacernos algún Regalo aquí le dejamos algunas Opciones.
+    </p>
+    <div class="opciones-regalos">
+      <button id="btn-efectivo">
+        <img src="imagenes/sobre.png" alt="Icono de Sobre"> Efectivo
+      </button>
+      <button id="btn-banco">
+        <img src="imagenes/banco.png" alt="Icono de Banco"> Ver Datos Bancarios
+      </button>
+    </div>
+  </div>
+  
+ <!-- Cuadro emergente para Efectivo -->
+<div id="popup-efectivo" class="popup-cuadro efectivo-popup oculto">
+    <span class="cerrar-popup" onclick="cerrarPopup('popup-efectivo')">X</span>
+    <p>En la recepción habrá un cofre donde podrás depositar tu sobre.</p>
+</div>
+
+<!-- Cuadro emergente para Banco -->
+<div id="popup-banco" class="popup-cuadro banco-popup oculto">
+    <span class="cerrar-popup" onclick="cerrarPopup('popup-banco')">X</span>
+    <h2>Datos bancarios de los novios:</h2><p>Nequi:<br>
+        Mario Forero<br>3017342055</p>
+               <h4>______________________________</h4>
+    </h3><p>Banco Caja Social <br>N°: 24135466533<br>Cuenta de ahorro <br>Paola Andrea  Montana Castro <br>Cc:1111197292</p>
+</div>
+<section class="seccion-ultimas-palabras">
+    <div class="ultimas palabras">
+        <h1>¡Gracias por Compartir este Dia tan Especial para Nosotros! </h1>
+        <h2>David y Pao</h2>
+        <h2>¡Muchas Gracias!</h2>
+    </div>
+</section>
+       
+    
+    </main>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
